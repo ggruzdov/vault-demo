@@ -12,8 +12,8 @@ This is a simple Spring Boot application that demonstrates how to use Spring Clo
 ## Getting Started
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-username/spring-cloud-vault-demo.git
-    cd spring-cloud-vault-demo
+    git clone https://github.com/ggruzdov/vault-demo.git
+    cd vault-demo
     ```
 2. Start the Vault server:
     ```bash
