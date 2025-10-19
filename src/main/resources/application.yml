@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: vault-demo
+  config:
+    import: vault://
+  cloud:
+    vault:
+      token: root
+      scheme: http
+      host: ${VAULT_HOST:localhost}
+      port: 8200
+      fail-fast: true
+      kv:
+        backend: kv/apps

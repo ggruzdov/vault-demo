@@ -1,0 +1,19 @@
+services:
+  vault-demo:
+    image: hashicorp/vault:1.19
+    ports:
+      - "8200:8200"
+    environment:
+      VAULT_DEV_ROOT_TOKEN_ID: root
+      VAULT_DEV_LISTEN_ADDRESS: 0.0.0.0:8200
+    cap_add:
+      - IPC_LOCK
+    volumes:
+      - ./init.sh:/init.sh
+    entrypoint: >
+      sh -c "
+        vault server -dev -dev-root-token-id=root -dev-listen-address=0.0.0.0:8200 &
+        sleep 3 &&
+        VAULT_ADDR=http://127.0.0.1:8200 VAULT_TOKEN=root sh /init.sh &&
+        wait
+      "
